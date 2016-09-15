@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h1>RPI focos extremos</h1>
+
+{% if error %}
+  <p><strong>Error: </strong>{{ error }} 
+{% endif %}
+
+{% for f in focos %}
+<h2> {{focos[f].name}}
+ {% if focos[f].state == true %}
+  is currently <strong>on</strong></h2>
+{% else %}
+  is currently <strong>off</strong></h2>
+{% endif %}
+{% endfor %}
+  
+{% endblock %}

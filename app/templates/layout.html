@@ -1,0 +1,77 @@
+<!--
+   layout.html
+   
+   Copyright 2016 Cesar Venzor <foxhound15c@gmail.com>
+   
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation; either version 2 of the License, or
+   (at your option) any later version.
+   
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+   
+   You should have received a copy of the GNU General Public License
+   along with this program; if not, write to the Free Software
+   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+   MA 02110-1301, USA.
+   
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RPi Automation</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+    
+    <header>
+      <div class="container jumbotron text-center">
+	<h1>RPI Automation</h1>
+	<h3>Cesar Venzor</h3>
+      </div>
+    </header>
+
+    <div class="container">
+      <strong><nav class="navbar navbar-inverse">
+	  <ul class="nav navbar-nav">
+	    <li><a href="{{ url_for('main') }}">Home</a></li>
+	    <li><a href="{{ url_for('about') }}">About</a></li>
+	    <li><a href="{{ url_for('login') }}">Login</a></li>
+	    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+	  </ul>
+      </nav></strong>
+    </div>
+
+    <div class="container">
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      <div class="alert alert-success">
+	<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <ul>
+	{% for message in messages %}
+        <li>{{ message }}</li>
+	{% endfor %}
+      </ul>
+      </div>
+      {% endif %}
+      {% endwith %}
+    </div>
+
+    
+    
+    {% block content %}
+
+    {% endblock %}
+    
+  </body>
+
+</html>
